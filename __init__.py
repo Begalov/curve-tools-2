@@ -20,7 +20,7 @@ bl_info = {
     "name": "Curve Tools 2",
     "description": "Adds some functionality for bezier/nurbs curve/surface modeling",
     "author": "Mackraken, guy lateur, RUben <Begalov@gmail.com>",
-    "version": (0, 2, 3),
+    "version": (0, 2, 4),
     "blender": (2, 80, 0),
     "location": "View3D > Tool Shelf > Addons Tab",
     "warning": "WIP",
@@ -314,10 +314,10 @@ class CT2_PT_CurvePanel(Panel):
                             if j.select_control_point:
                                 selected.append(n)
                                 vertex.append(obj.matrix_world @ j.co)
-
-                if len(vertex) > 0 and n > 2:
-                    row = col.row(align=True)
-                    row.operator("curve.bezier_points_fillet", text='Fillet')
+                # rna_uiItemO: operator missing srna 'curve.bezier_points_fillet'
+                # if len(vertex) > 0 and n > 2:
+                #     row = col.row(align=True)
+                #     row.operator("curve.bezier_points_fillet", text='Fillet')
                 """
                 if len(vertex) == 2 and abs(selected[0] - selected[1]) == 1:
                     row = col.row(align=True)
